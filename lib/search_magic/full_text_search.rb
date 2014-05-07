@@ -150,11 +150,11 @@ module SearchMagic
         }.flatten(1)]
     end
     
-    # def update_associated_documents
-    #   self.class.inverse_searchables.each do |relation_name|
-    #     relation = send(relation_name)
-    #     Array.wrap(relation).each(&:save!)
-    #   end
-    # end
+    def update_associated_documents
+      # self.class.inverse_searchables.each do |relation_name|
+      #   relation = send(relation_name)
+      #   Array.wrap(relation).each(&:save!)
+      # end
+    end
   end
 end
