@@ -9,7 +9,7 @@ module SearchMagic
       field :arrangeable_values, :type => Hash, :default => {}
       before_save :update_searchable_values
       before_save :update_arrangeable_values
-      after_save :update_associated_documents
+      # after_save :update_associated_documents
     end
     
     module ClassMethods
