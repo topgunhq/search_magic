@@ -9,6 +9,7 @@ module SearchMagic
       field :arrangeable_values, :type => Hash, :default => {}
       before_save :update_searchable_values
       before_save :update_arrangeable_values
+      after_save :update_associated_documents
     end
     
     module ClassMethods
@@ -147,6 +148,15 @@ module SearchMagic
       self.arrangeable_values = Hash[*self.class.searchables.map {|key, metadata|
         [key, metadata.arrangeable_value_for(self)]
         }.flatten(1)]
+    end
+    
+    def update_associated_documents
+      Rails.logger.debug "====================="
+      Rails.logger.debug 'This is happening'
+      Rails.logger.debug "====================="
+      Rails.logger.debug "====================="
+
+      UpdateWorker.perform_async(self.id, self.class.name)
     end
   end
 end
