@@ -149,18 +149,5 @@ module SearchMagic
         [key, metadata.arrangeable_value_for(self)]
         }.flatten(1)]
     end
-    
-    def update_associated_documents
-      Rails.logger.debug "====================="
-      Rails.logger.debug 'This is happening'
-      Rails.logger.debug "====================="
-      Rails.logger.debug "====================="
-      Rails.logger.debug self.id
-      Rails.logger.debug "====================="
-      Rails.logger.debug "====================="
-      Rails.logger.debug self.class
-      Rails.logger.debug "====================="
-      # UpdateWorker.perform_async(self.id, self.class)
-    end
   end
 end
