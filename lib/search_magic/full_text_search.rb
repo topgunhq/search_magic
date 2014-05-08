@@ -151,6 +151,9 @@ module SearchMagic
     end
     
     def update_associated_documents
+      Rails.logger.debug "====================="
+      Rails.logger.debug 'This is happening'
+      Rails.logger.debug "====================="
       UpdateWorker.perform_async(self.id, self.class)
     end
   end
