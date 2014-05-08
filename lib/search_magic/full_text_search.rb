@@ -160,7 +160,7 @@ module SearchMagic
       Rails.logger.debug "====================="
       Rails.logger.debug self.class
       Rails.logger.debug "====================="
-      UpdateWorker.perform_async(self.id, self.class)
+      # UpdateWorker.perform_async(self.id, self.class)
     end
   end
 end
