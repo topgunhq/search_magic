@@ -151,10 +151,7 @@ module SearchMagic
     end
     
     def update_associated_documents
-      # self.class.inverse_searchables.each do |relation_name|
-      #   relation = send(relation_name)
-      #   Array.wrap(relation).each(&:save!)
-      # end
+      UpdateWorker.perform_async(self.id, self.class)
     end
   end
 end
